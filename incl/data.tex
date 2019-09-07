@@ -1,6 +1,28 @@
 \section{Data Overview}
 \label{sec:data}
 
+\begin{frame}{Data}{German Day-Ahead Electricity Prices}
+  \begin{itemize}
+  \item<2-> Estimation data range: 2015-01-06 -- 2018-12-31
+  \item<3-> Downloaded from the ENTSO-E Transparency Platform
+    \begin{itemize}
+    \item 2015-01-06 -- 2018-09-30: DE-AT-LU bidding zone prices
+    \item 2018-10-01 -- 2018-12-31: DE-LU bidding zone prices
+    \end{itemize}
+  \item<4-> Missing Hour 3 observations (due to summer time) interpolated from hours 2 and 4
+  \item<5-> Duplicate Hour 3 observations (due to winter time) averaged
+  \end{itemize}
+
+  \begin{block}{}<6->
+    \(\implies\) 24 daily time series of 1668 observations
+  \end{block}
+\end{frame}
+
+\begin{frame}{Data}{German Day-Ahead Electricity Prices}
+  \begin{center}
+    \includegraphics[width=\textwidth]{img/gen/entsoe-spot}
+  \end{center}
+\end{frame}
 
 %%% Local Variables:
 %%% mode: latex
