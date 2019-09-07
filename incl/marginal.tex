@@ -1,6 +1,97 @@
 \section{Marginal Models}
 \label{sec:marginal}
 
+\begin{frame}{Marginal Models}{Overview}
+  With \(t \in \cbr{1,\dotsc,1668}\) and \(h \in \cbr{1,\dotsc,24}\),
+  \begin{equation*}
+    p_{t,h} \coloneqq \log\of{P_{t,h} + K} = s_{t,h} + X_{t,h},
+  \end{equation*}
+  where
+  \begin{itemize}
+  \item \(K = 500\) (chosen as such from bid restrictions)
+  \item \(s_{t,h}\) is a deterministic component for capturing season
+  \item \(X_{t,h}\) is a stochastic component for capturing serial behaviour
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Marginal Models}{Seasonal Component}
+  \begin{block}{Seasonal model specification}
+    \begin{equation*}
+      s_{t,h} = \alpha_{0,h} + \alpha_{1,h} \cdot t + \sum_{\phi \in \Phi} \del{\beta_{1,\phi,h} \sin\of{2\pi t \phi} + \beta_{2,\phi,h} \cos\of{2\pi t \phi}} + \gamma_{w,h} w_{t} ,
+    \end{equation*}
+    where
+    \begin{itemize}
+    \item \(\Phi = \cbr{1/365, 2/365}\) is a set of frequencies
+    \item \(w_{t}\) is a factor variable for weekdays
+    \end{itemize}
+  \end{block}
+  \begin{block}{}<2->
+    Estimated with a linear model, residuals used for serial model
+  \end{block}
+\end{frame}
+
+\begin{frame}{Marginal Models}{Serial Component}
+  \begin{block}{Serial model specification}
+    Each model is chosen among a panel of ARMA-GARCH models:
+    \begin{itemize}
+    \item ARMA orders: \(p,q \in \cbr{0,1}\)
+    \item GARCH orders: \(p,q \in \cbr{0,1}\) such that at least one is nonzero
+    \item GARCH types: GJR-GARCH and EGARCH
+    \item Conditional distributions: Student's \(t\)-distribution and its skewed variant
+    \end{itemize}
+  \end{block}
+  \begin{block}{}<2->
+    \(\implies\) 48 different models for each series;
+
+    estimated with MLE, model chosen with BIC
+  \end{block}
+\end{frame}
+
+\begin{frame}{Marginal Models}{Serial Component}
+  \begin{columns}
+    \footnotesize
+    \begin{column}{0.49\textwidth}
+      \begin{tabular}{rl}
+        \toprule
+        Hour & Model \\
+        \midrule
+        1 & ARMA(1,1)-GJR-GARCH(1,1)-st \\
+        2 & ARMA(1,1)-GJR-GARCH(1,1)-st \\
+        3 & ARMA(1,1)-E-GARCH(1,1)-st \\
+        4 & ARMA(1,1)-GJR-GARCH(1,1)-st \\
+        5 & ARMA(1,1)-E-GARCH(1,1)-st \\
+        6 & ARMA(1,1)-GJR-GARCH(1,1)-st \\
+        7 & ARMA(1,1)-E-GARCH(1,1)-st \\
+        8 & ARMA(1,1)-E-GARCH(1,1)-st \\
+        9 & ARMA(1,1)-E-GARCH(1,1)-st \\
+        10 & ARMA(1,1)-E-GARCH(1,1)-st \\
+        11 & ARMA(1,1)-E-GARCH(1,1)-st \\
+        12 & ARMA(1,1)-E-GARCH(1,1)-st \\
+        \bottomrule
+      \end{tabular}
+    \end{column}
+    \begin{column}{0.49\textwidth}
+      \begin{tabular}{rl}
+        \toprule
+        Hour & Model \\
+        \midrule
+        13 & ARMA(1,1)-GJR-GARCH(1,0)-st \\
+        14 & ARMA(1,1)-GJR-GARCH(1,0)-st \\
+        15 & AR(1)-GJR-GARCH(1,0)-st \\
+        16 & ARMA(1,1)-GJR-GARCH(1,0)-st \\
+        17 & ARMA(1,1)-GJR-GARCH(1,1)-st \\
+        18 & ARMA(1,1)-E-GARCH(1,1)-st \\
+        19 & ARMA(1,1)-GJR-GARCH(1,1)-t \\
+        20 & ARMA(1,1)-GJR-GARCH(1,1)-st \\
+        21 & ARMA(1,1)-GJR-GARCH(1,1)-st \\
+        22 & ARMA(1,1)-GJR-GARCH(1,1)-st \\
+        23 & ARMA(1,1)-E-GARCH(1,1)-st \\
+        24 & ARMA(1,1)-E-GARCH(1,1)-st \\
+        \bottomrule
+      \end{tabular}
+    \end{column}
+  \end{columns}
+\end{frame}
 
 %%% Local Variables:
 %%% mode: latex
