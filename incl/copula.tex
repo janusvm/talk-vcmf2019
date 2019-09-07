@@ -62,6 +62,23 @@
   \end{block}
 \end{frame}
 
+\begin{frame}{Recap on Copulas}{Estimating Vine Copulas}
+  \begin{block}{Sequential estimation}<1->
+    \begin{itemize}
+    \item<2-> Estimate tree structure with maximum spanning tree algorithm, using e.g.\ Kendall's \(\tau\) as edge weights
+    \item<3-> For each edge, estimate a range of copulas with MLE, select one with e.g.\ BIC
+    \item<4-> Use estimated copulas to calculate pseudo-observations for the next tree
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Maximum likelihood estimation}<1->
+    \begin{itemize}
+    \item<5-> Full MLE using numerical optimisation methods
+    \item<6-> Can use sequential estimation results as starting values
+    \end{itemize}
+  \end{block}
+\end{frame}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../slides"
