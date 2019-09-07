@@ -1,11 +1,99 @@
 \usetheme{AAUsimple}
 
+% Packages ---------------------------------------------------------------------
+
+% Basic packages
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{helvet}
+
+% Graphics
 \usepackage{graphicx}
 \usepackage{tikz}
+\usepackage{tikzscale}
 
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{bbm}
+\usepackage{bm}
+\usepackage{commath}
+
+% Commands and Environments ----------------------------------------------------
+\theoremstyle{plain}
+\newtheorem*{thm}{Theorem}
+\newtheorem*{lem}{Lemma}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem*{defn}{Definition}
+\newtheorem*{exmp}{Example}
+
+% Symbols and operators
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\J}{\pazocal{J}}
+\newcommand{\T}{\pazocal{T}}
+\newcommand{\F}{\pazocal{F}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\PM}{\mathbb{P}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\vine}{\pazocal{V}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\est}[1]{\widehat{#1}}
+\DeclareMathOperator{\ver}{ver}
+\DeclareMathOperator{\sign}{sign}
+
+% Vectors
+\renewcommand{\vec}[1]{\bm{#1}}
+\newcommand{\zeros}{\vec{0}}
+\newcommand{\ones}{\vec{1}}
+\newcommand{\vx}{\vec{x}}
+\newcommand{\vX}{\vec{X}}
+\newcommand{\vy}{\vec{y}}
+\newcommand{\vY}{\vec{Y}}
+\newcommand{\vz}{\vec{z}}
+\newcommand{\vZ}{\vec{Z}}
+\newcommand{\vt}{\vec{t}}
+\newcommand{\vT}{\vec{T}}
+\newcommand{\vu}{\vec{u}}
+\newcommand{\vU}{\vec{U}}
+\newcommand{\vv}{\vec{v}}
+\newcommand{\vV}{\vec{V}}
+\newcommand{\vw}{\vec{w}}
+\newcommand{\vW}{\vec{W}}
+\newcommand{\va}{\vec{a}}
+\newcommand{\vA}{\vec{A}}
+\newcommand{\vb}{\vec{b}}
+\newcommand{\vB}{\vec{B}}
+\newcommand{\vc}{\vec{c}}
+\newcommand{\vC}{\vec{C}}
+\newcommand{\vF}{\vec{F}}
+\newcommand{\valpha}{\vec{\alpha}}
+\newcommand{\vbeta}{\vec{\beta}}
+\newcommand{\vmu}{\vec{\mu}}
+\newcommand{\vtheta}{\vec{\theta}}
+\newcommand{\vsigma}{\vec{\sigma}}
+\newcommand{\vSigma}{\vec{\Sigma}}
+
+% Distributions
+\newcommand{\Unif}{\mathrm{Unif}}
+\newcommand{\Norm}{\mathrm{N}}
+
+% Copula families
+\newcommand{\Ga}{\mathbf{Ga}}
+\newcommand{\St}{\mathbf{t}}
+\newcommand{\Gum}{\mathbf{Gum}}
+\newcommand{\Clay}{\mathbf{Clay}}
+\newcommand{\Frank}{\mathbf{Frank}}
+
+\newcommand{\of}[2][-1]{\!\del[#1]{#2}}
+
+% Settings ---------------------------------------------------------------------
 \pgfdeclareimage[height=1.5cm]{titlepagelogo}{img/aau/aau_logo_new}
 \titlegraphic{\pgfuseimage{titlepagelogo}}
 
