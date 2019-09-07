@@ -1,0 +1,68 @@
+\section{Recap: Copulas and Vines}
+\label{sec:copula}
+
+\begin{frame}{Recap on Copulas}{Definition}
+  \begin{defn}[Copula]
+    A \emph{\(d\)-dimensional copula} is a function \(C : \intcc{0,1}^{d} \to \intcc{0,1}\) such that
+    \begin{enumerate}
+    \item \(C\of{u_{1}, \dotsc, u_{d}} = 0\) if \(u_{j} = 0\) for at least one \(j \in \cbr{1,\dotsc,d}\)
+    \item \(C\of{1, \dotsc, 1, u_{j}, 1, \dotsc, 1} = u_{j}\) for all \(j \in \cbr{1,\dotsc,d}\)
+    \item \(V_{C}\of{\intoc{\va, \vb}} \geq 0\) for every \(d\)-box \(\intoc{\va,\vb} \subseteq \intcc{0,1}^{d}\)
+    \end{enumerate}
+    where \(\intoc{\va,\vb} \coloneqq \intoc{a_{1}, b_{1}} \times \dotsb \intoc{a_{d}, b_{d}}\) and
+    \begin{align*}
+      V_{C}\of{\intoc{\va,\vb}} &\coloneqq \sum_{\vv\in\ver\intoc{\va,\vb}}\sign\of{\vv} C\of{\vv} ; \\
+      \ver\intoc{\va,\vb} &\coloneqq \cbr{a_{1}, b_{1}} \times \dotsb \times \cbr{a_{d}, b_{d}} , \\
+      \sign\of{\vv} &\coloneqq
+                      \begin{cases}
+                        1, & \text{if}~ v_{j} = a_{j} ~\text{for an even number of indices}, \\
+                        -1, & \text{otherwise} .
+                      \end{cases}
+    \end{align*}
+  \end{defn}
+\end{frame}
+
+\begin{frame}{Recap on Copulas}{Sklar's Theorem}
+  \begin{thm}[Sklar's Theorem]
+    Let \(\vX\) be a \(d\)-dimensional random vector with joint distribution function \(F\) and marginals \(F_{1}, \dotsc, F_{d}\).
+    Then there exists a \(d\)-copula \(C\) such that
+    \begin{equation*}
+      F\of{\vx} = C\of{F_{1}\of{x_{1}}, \dotsc, F_{d}\of{x_{d}}}, \quad \forall \vx \in \R^{d}
+    \end{equation*}
+    and if the marginals are all continous, then \(C\) is uniquely defined.
+  \end{thm}
+\end{frame}
+
+\begin{frame}{Recap on Copulas}{Families of Copulas \((d=2)\)}
+  \begin{center}
+    \includegraphics[width=0.85\textwidth]{img/gen/copfamilies}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Recap on Copulas}{Basic Idea Behind Vine Copulas}
+  \begin{itemize}
+  \item<2-> Factor full joint density into product of marginal densities and copula densities
+  \item<3-> Represent with sequence of trees, such that
+    \begin{itemize}
+    \item Marginals are nodes in the first tree
+    \item Pair-copulas between the marginals are edges in the first tree
+    \item Edges from the previous tree becomes nodes in the next
+    \item Edges in subsequent trees are conditional pair-copulas
+    \item Nodes in a tree can be joined by an edge, if the nodes share a node from the previous tree
+    \end{itemize}
+  \item<4-> The chosen pair-copulas need not be the same
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Recap on Copulas}{Basic Idea Behind Vine Copulas: Example}
+  \begin{block}{Example in \(d = 4\)}
+    \begin{center}
+      \includegraphics[width=0.8\textwidth]{img/tikz/vine4.tikz}
+    \end{center}
+  \end{block}
+\end{frame}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../slides"
+%%% End:

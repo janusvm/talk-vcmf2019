@@ -1,0 +1,37 @@
+\begin{tikzpicture}[
+  dist/.style={draw,circle},
+  cop/.style={draw,rectangle}
+  ]
+
+  % Labels
+  \node at (-2,0) {\((T_{1})\)};
+  \node at (-2,-2) {\((T_{2})\)};
+  \node at (-2,-4) {\((T_{3})\)};
+  \node at (-2,-6) {\((T_{4})\)};
+
+  % T1
+  \node[dist] (f1) at (0,0) {\(f_{1}\)};
+  \node[dist] (f2) at (4,0) {\(f_{2}\)};
+  \node[dist] (f3) at (8,0) {\(f_{3}\)};
+  \node[dist] (f4) at (12,0) {\(f_{4}\)};
+
+  % T2
+  \node[cop] (c12) at (2,-2) {\(c_{1,2}\)};
+  \node[cop] (c23) at (6,-2) {\(c_{2,3}\)};
+  \node[cop] (c34) at (10,-2) {\(c_{3,4}\)};
+
+  \foreach \from/\to in {f1/c12,f2/c12,f2/c23,f3/c23,f3/c34,f4/c34}
+  \draw (\from) -| (\to);
+
+  % T3
+  \node[cop] (c132) at (4,-4) {\(c_{1,3|2}\)};
+  \node[cop] (c243) at (8,-4) {\(c_{2,4|3}\)};
+
+  \foreach \from/\to in {c12/c132,c23/c132,c23/c243,c34/c243}
+  \draw (\from) -| (\to);
+
+  % T4
+  \node[cop] (c1423) at (6,-6) {\(c_{1,4|2,3}\)};
+  \foreach \from/\to in {c132/c1423,c243/c1423}
+  \draw (\from) -| (\to);
+\end{tikzpicture}
