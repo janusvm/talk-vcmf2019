@@ -18,7 +18,7 @@ descs <- list(
   expression(Joe~(alpha == 3))
 )
 
-pdf("img/gen/copfamilies.pdf", width = 7.2, height = 5.4)
+pdf("img/gen/copfamilies.pdf", width = 7.2, height = 4.2)
 par(mfrow = c(2, 3),
   omi = rep(0.1, 4),
   mai = rep(0.25, 4))
