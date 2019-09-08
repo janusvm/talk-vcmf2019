@@ -20,13 +20,36 @@
     \end{equation*}
     where \(H(s) \subseteq \cbr{1,\dotsc,24}\) are the hours on day \(s\) for which the forward is in effect.
   \end{block}
-
-  \begin{block}{}<2->
-    For example, if the delivery interval is February 2019, on hours 2--4 and 16--18, for 40 EUR/MW, the simulated mean payoff is 48.31.
-  \end{block}
 \end{frame}
 
-% TODO: more stuff? comparison with real prices?
+\begin{frame}{Simulation of Price Distribution}{Example}
+  \begin{block}{Example simulation}
+    \begin{enumerate}
+    \item Prices simulated for the period 2019-01-01 -- 2019-07-31
+
+      \(\implies\) 212 observations \(\times\) 24 hours.
+    \item Payoff calculated for some contract \(F\of{t, t_{1}, t_{2}}\)
+    \item Steps 1--2 repeated 500 times
+
+      \(\implies\) simulated payoff distribution
+    \end{enumerate}
+   \end{block}
+   \begin{block}{}<2->
+     For example, if the delivery interval is February 2019, on hours 2--4 and 16--18, for 40 EUR/MW, the simulated mean payoff is \textbf{14.10}, while the payoff using actual prices is \textbf{5.05}.
+   \end{block}
+\end{frame}
+
+\begin{frame}{Simulation of Price Distribution}{Example}
+  \begin{center}
+    \includegraphics[width=\textwidth]{img/payoff-density}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Simulation of Price Distribution}{Example of Single Draw}
+  \begin{center}
+    \includegraphics[width=\textwidth]{img/sim-vs-actual}
+  \end{center}
+\end{frame}
 
 %%% Local Variables:
 %%% mode: latex
